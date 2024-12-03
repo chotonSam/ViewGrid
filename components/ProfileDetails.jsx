@@ -1,6 +1,6 @@
 import { getDictionary } from "@/app/[lang]/dictionaries";
 import Image from "next/image";
-import { RiUserFollowFill } from "react-icons/ri";
+import FollowBtn from "./FollowBtn";
 import PhotoList from "./PhotoList";
 export default async function ProfileDetails({ name, lang }) {
   const response = await fetch(`${process.env.BASE_API_URL}/author/${name}`);
@@ -48,10 +48,7 @@ export default async function ProfileDetails({ name, lang }) {
               </p>
             </div>
 
-            <button className=" flex items-center gap-1.5 bg-red-500 py-3 px-5 rounded-full text-white text-xl">
-              <RiUserFollowFill />
-              <h2 className="text-base "> {dictionary.follow}</h2>
-            </button>
+            <FollowBtn dictionary={dictionary} />
           </div>
         </div>
       </div>
